@@ -19,7 +19,8 @@
     }  
     if (!isset($_SESSION)) session_start(); 
     $_SESSION['idkeyuser'] = $resultado['id'];
-    $_SESSION['loginuser'] = $resultado['login'];  
+    $_SESSION['loginuser'] = $resultado['login'];
+    $_SESSION['loginnivel'] = $resultado['nivel'];
     $_SESSION['status'] = $resultado['status'];  
     ?>
     <script type="text/javascript">

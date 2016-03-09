@@ -13,21 +13,26 @@
 	    <?php 
 	    // exit;
 	// } 
-	$query_user = mysqli_query($conn,"SELECT * FROM sp_usuarios WHERE id=".$_SESSION['userid']);
-	$user = mysqli_fetch_array($query_user,MYSQLI_ASSOC);
+	//$query_user = mysqli_query($conn,"SELECT * FROM sp_usuarios WHERE id=".$_SESSION['userid']);
+	//$user = mysqli_fetch_array($query_user,MYSQLI_ASSOC);
 ?>
 <div class="bar-top show-for-large-up" style="height:50px;">	
 	<div class="small-12 large-2 columns" style="padding-left: 0px;">
-		<a href="index.php"><img src="img/logo.png" class="logo"></a>
+		<!--<a href="index.php"><img src="img/logo.png" class="logo"></a>-->
 	</div>  
 </div> 
+
+
+
+
 <?php 
-	switch ($_SESSION['nivel']) { 
+	switch ($_SESSION['loginnivel']) { 
 	    case '1': 
-    		include "inc/menu1.php";
+    		//include "inc/menu1.php"; // menuUsuario
+	    	include "inc/qrcode_generate.php";
      		break;
 	    case '2': 
-			include "inc/menu1.php";
+			include "inc/menu1.php"; // menuCasaNoturna
 			break; 
 	    default:
 			echo "<script>alert('Por motivos de segurança será feito logout!\nPor favor faça seu login novamente.');window.location.href='logout.php'</script>"; 
@@ -35,9 +40,19 @@
 			break;
 	}
 ?>
+
+
+
+
+
+
+
+
+
+
 <div style="padding-top:50px;">	
 	<div class="small-12 columns show-for-medium-down">
-		<a href="index.php"><img src="img/logo.png" style="width:100%;" class="logo"></a>
+		<!--<a href="index.php"><img src="img/logo.png" style="width:100%;" class="logo"></a>-->
 		<hr>
 	</div>
 	<div class="small-12 large-10 columns" style="float:right; ">
@@ -50,7 +65,7 @@
 	        if (file_exists($filename)) {
 	            include $filename;
 	        } else {
-	            include "404.php";
+	            //include "404.php";
 	        }
 	    ?>
 	</div>
